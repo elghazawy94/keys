@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lockers key</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Lokers <span class="text-danger">key</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container my-5">
+        <div class="row mb-3">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">Create Locker</h5>
+                    <p class="card-text">You can always add more lockers by pressing create and typing the number of lockers.</p>
+                    <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addLocker">Create</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">Rest Locker</h5>
+                    <p class="card-text">You can always do a factory reset by pressing the reset button to have only 28 Lockers.</p>
+                    <a href="#" onclick="restLcoker()" class="btn btn-danger">Rest to default</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-12 my-4">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link text-danger active" data-testid="redLocker" href="#">Red Locker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" data-testid="blueLocker" href="#">blue Locker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" data-testid="yellowLocker" href="#">yellow Locker</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex mb-3">
+                            <div class="p-2"><h6><span id="numLocker"></span></h6></div>
+                            <div class="ms-auto p-2"><h6><span id="totalLocker"></span></h6></div>
+                        </div>
+                        <div class="progress" style="height: 20px;">
+                            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row mb-3" id="lockerBox"></div>
+        </div>
+    </section>
+    <footr>
+        <div class="copyright">
+            <div class="container">
+                <p>Copyright 2022 All Right Reserved By <a href="https://www.linkedin.com/in/mohamed-elghazawy-b16657130">Mohammed El-Ghazawy</a> Version 1.0</p>
+            </div>
+        </div>
+    </footr>
+    <a href="#" class="back-to-top" id="scroll-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Modal -->
+    <div class="modal fade" id="addLocker" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Create Locker</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="checkLocker" value="redLocker" id="checkLocker1" checked>
+                        <label class="form-check-label text-danger">Red Locker</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="checkLocker" value="blueLocker" id="checkLocker2">
+                        <label class="form-check-label text-primary">Blue Locker</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="checkLocker" value="yellowLocker" id="checkLocker3">
+                        <label class="form-check-label text-warning">Yellow Locker</label>
+                    </div>
+                    <div class="mb-3 mt-2">
+                        <label class="form-label">Number Locker</label>
+                        <input type="text" class="form-control" id="numberLockerAdd">
+                            <div id="nameError" class="my-2"></div>
+                            <div id="namesuccess" class="my-2"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="createLocker" class="btn btn-primary">Create</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

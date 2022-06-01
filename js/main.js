@@ -94,19 +94,19 @@ function filter(filterLocker,color){
     for(var i=0; i<=lockers[filterLocker].length-1; i++){
         if(lockers[filterLocker][i].status === true){
             box+=`
-            <div class="col-md-3 ">
+            <div class="col-md-2">
                 <div class="bg-dark bg-gradient text-white p-3 mb-3 text-center border border-3 border-${color} position-relative">
                     <span class="locker-number bg-gradient bg-${color}">${lockers[filterLocker][i].id}</span>
-                    <h5><i class="fa-solid fa-key fa-5x mt-5 text-${color}"></i></h5>
+                    <h5><i class="fa-solid fa-key fa-3x mt-5 text-${color}"></i></h5>
                     <div class="d-grid gap-2 mt-4"><button class="btn btn-secondary" type="button" onclick="closeLocker('${i}','${filterLocker}')">close</button></div>
                 </div>
             </div>`;
         }else if(lockers[filterLocker][i].status === false){
             box+=`
-            <div class="col-md-3 ">
+            <div class="col-md-2">
                 <div class="bg-dark bg-gradient text-white p-3 mb-3 text-center border border-3 border-secondary position-relative">
                     <span class="locker-number bg-gradient bg-secondary">${lockers[filterLocker][i].id}</span>
-                    <h5><i class="fa-solid fa-lock fa-5x mt-5 text-secondary"></i></h5>
+                    <h5><i class="fa-solid fa-lock fa-3x mt-5 text-secondary"></i></h5>
                     <div class="d-grid gap-2 mt-4"><button class="btn bg-${color} text-white" onclick="openlocker('${i}','${filterLocker}')" type="button">open</button></div>
                 </div>
             </div>`;
